@@ -3,6 +3,7 @@ using Confluent.Kafka.SyncOverAsync;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
 using HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos;
+using HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.Response;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
@@ -20,14 +21,15 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
 
         // GET api/<OrdersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetOrder(string id)
         {
-            return "value";
+            return id;
         }
 
         // POST api/<OrdersController>
         [HttpPost]
-        public void Post([FromBody] Order order)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<ActionResult<OrderResponse>> Post([FromBody] Order order)
         {
             var config = new ProducerConfig
             {
@@ -44,12 +46,8 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
                 .SetValueSerializer(new AvroSerializer<Order>(schemaRegistry).AsSyncOverAsync())
                 .Build();
 
-            producer.Produce("orders", new Message<string, Order> { Key = order.id, Value = order }, report =>
-              {
-                  Console.WriteLine(report.Error.Reason);
-              });
-
-            producer.Flush(TimeSpan.FromSeconds(100));
+            await producer.ProduceAsync("orders", new Message<string, Order> { Key = order.id, Value = order });
+            return CreatedAtAction(nameof(GetOrder), new { id = order.id }, new OrderResponse(Url.Action(nameof(GetOrder), values: new { id = order.id }) ?? string.Empty));
         }
 
         // PUT api/<OrdersController>/5
