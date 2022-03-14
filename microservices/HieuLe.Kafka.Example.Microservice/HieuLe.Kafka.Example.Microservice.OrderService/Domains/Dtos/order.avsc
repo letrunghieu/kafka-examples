@@ -1,0 +1,60 @@
+[
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos",
+    "type": "enum",
+    "name": "OrderState",
+    "symbols": [ "CREATED", "VALIDATED", "FAILED", "SHIPPED" ]
+  },
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos",
+    "type": "enum",
+    "name": "Product",
+    "symbols": [ "JUMPERS", "UNDERPANTS", "STOCKINGS" ]
+  },
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos",
+    "type": "record",
+    "name": "Order",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "type": "long"
+      },
+      {
+        "name": "state",
+        "type": "OrderState"
+      },
+      {
+        "name": "product",
+        "type": "Product"
+      },
+      {
+        "name": "quantity",
+        "type": "int"
+      },
+      {
+        "name": "price",
+        "type": "double"
+      }
+    ]
+  },
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos",
+    "type": "record",
+    "name": "OrderValue",
+    "fields": [
+      {
+        "name": "order",
+        "type": "Order"
+      },
+      {
+        "name": "value",
+        "type": "double"
+      }
+    ]
+  }
+]

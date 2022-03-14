@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Confluent.Kafka;
+using Confluent.Kafka.SyncOverAsync;
+using Confluent.SchemaRegistry;
+using Confluent.SchemaRegistry.Serdes;
+using HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
 {
@@ -22,8 +27,29 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
 
         // POST api/<OrdersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Order order)
         {
+            var config = new ProducerConfig
+            {
+                BootstrapServers = "broker:29092",
+            };
+
+            using var schemaRegistry = new CachedSchemaRegistryClient(new SchemaRegistryConfig
+            {
+                Url = "http://schema-registry:8081"
+            });
+
+            using var producer = new ProducerBuilder<string, Order>(config)
+                .SetKeySerializer(new AvroSerializer<string>(schemaRegistry).AsSyncOverAsync())
+                .SetValueSerializer(new AvroSerializer<Order>(schemaRegistry).AsSyncOverAsync())
+                .Build();
+
+            producer.Produce("orders", new Message<string, Order> { Key = order.id, Value = order }, report =>
+              {
+                  Console.WriteLine(report.Error.Reason);
+              });
+
+            producer.Flush(TimeSpan.FromSeconds(100));
         }
 
         // PUT api/<OrdersController>/5
