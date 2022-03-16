@@ -163,5 +163,14 @@ services:
       - kafka-init-topics
     build:
       context: .
-      dockerfile: ../HieuLe.Kafka.Example.Microservice.OrderDetailsService/Dockerfile
+      dockerfile: HieuLe.Kafka.Example.Microservice.OrderDetailsService/Dockerfile
+
+
+  hieule.kafka.example.microservice.fraudservice:
+    image: ${DOCKER_REGISTRY-}hieulekafkaexamplemicroservicefraudservice
+    depends_on:
+      - kafka-init-topics
+    build:
+      context: .
+      dockerfile: HieuLe.Kafka.Example.Microservice.FraudService/Dockerfile
 

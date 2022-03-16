@@ -4,16 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-HieuLe.Kafka.Example.Microservice.OrderDetailsService-8BBA6429-8DE1-4E78-9E50-112CD8682065</UserSecretsId>
+    <UserSecretsId>dotnet-HieuLe.Kafka.Example.Microservice.FraudService-3DAF23A5-7AC4-40DF-A6D0-9EE900578AA7</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 </Project>

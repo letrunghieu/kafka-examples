@@ -12,9 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2FD53CD6-D85B-4FBB-883F-3C8BA745AE00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Microservice.OrderDetailsService", "..\HieuLe.Kafka.Example.Microservice.OrderDetailsService\HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj", "{656FEDA8-51F4-4688-BBBE-47736E70A614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Microservice.OrderDetailsService", "HieuLe.Kafka.Example.Microservice.OrderDetailsService\HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj", "{D0E61D6B-F4C2-46FA-8FFE-97393DB433FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HieuLe.Kafka.Example.Microservice.Shared", "..\HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj", "{B1086DA6-4395-431A-A58A-E1C0205CA113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Microservice.Shared", "HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj", "{A7025992-145E-458B-A74B-5F7FFA0431A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HieuLe.Kafka.Example.Microservice.FraudService", "HieuLe.Kafka.Example.Microservice.FraudService\HieuLe.Kafka.Example.Microservice.FraudService.csproj", "{1980B406-FFCC-492E-B313-39DC0883B5B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +32,18 @@ Global
 		{2FD53CD6-D85B-4FBB-883F-3C8BA745AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FD53CD6-D85B-4FBB-883F-3C8BA745AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FD53CD6-D85B-4FBB-883F-3C8BA745AE00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{656FEDA8-51F4-4688-BBBE-47736E70A614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{656FEDA8-51F4-4688-BBBE-47736E70A614}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{656FEDA8-51F4-4688-BBBE-47736E70A614}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{656FEDA8-51F4-4688-BBBE-47736E70A614}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1086DA6-4395-431A-A58A-E1C0205CA113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1086DA6-4395-431A-A58A-E1C0205CA113}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1086DA6-4395-431A-A58A-E1C0205CA113}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1086DA6-4395-431A-A58A-E1C0205CA113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E61D6B-F4C2-46FA-8FFE-97393DB433FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E61D6B-F4C2-46FA-8FFE-97393DB433FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E61D6B-F4C2-46FA-8FFE-97393DB433FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E61D6B-F4C2-46FA-8FFE-97393DB433FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7025992-145E-458B-A74B-5F7FFA0431A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7025992-145E-458B-A74B-5F7FFA0431A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7025992-145E-458B-A74B-5F7FFA0431A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7025992-145E-458B-A74B-5F7FFA0431A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

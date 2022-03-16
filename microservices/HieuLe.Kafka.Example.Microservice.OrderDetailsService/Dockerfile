@@ -5,10 +5,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["../HieuLe.Kafka.Example.Microservice.OrderDetailsService/HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj", "../HieuLe.Kafka.Example.Microservice.OrderDetailsService/"]
-RUN dotnet restore "../HieuLe.Kafka.Example.Microservice.OrderDetailsService/HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj"
+COPY ["HieuLe.Kafka.Example.Microservice.OrderDetailsService/HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj", "HieuLe.Kafka.Example.Microservice.OrderDetailsService/"]
+RUN dotnet restore "HieuLe.Kafka.Example.Microservice.OrderDetailsService/HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj"
 COPY . .
-WORKDIR "/src/../HieuLe.Kafka.Example.Microservice.OrderDetailsService"
+WORKDIR "/src/HieuLe.Kafka.Example.Microservice.OrderDetailsService"
 RUN dotnet build "HieuLe.Kafka.Example.Microservice.OrderDetailsService.csproj" -c Release -o /app/build
 
 FROM build AS publish
