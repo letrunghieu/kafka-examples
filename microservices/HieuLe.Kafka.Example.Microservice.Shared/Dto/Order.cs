@@ -5,7 +5,7 @@
 //    is regenerated
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
+namespace HieuLe.Kafka.Example.Microservice.Shared.Dtos
 {
 	using System;
 	using System.Collections.Generic;
@@ -15,11 +15,11 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
 	
 	public partial class Order : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Order"",""namespace"":""HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos"",""fields"":[{""name"":""id"",""type"":""string""},{""name"":""customerId"",""type"":""long""},{""name"":""state"",""type"":{""type"":""enum"",""name"":""OrderState"",""namespace"":""HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos"",""symbols"":[""CREATED"",""VALIDATED"",""FAILED"",""SHIPPED""]}},{""name"":""product"",""type"":{""type"":""enum"",""name"":""Product"",""namespace"":""HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos"",""symbols"":[""JUMPERS"",""UNDERPANTS"",""STOCKINGS""]}},{""name"":""quantity"",""type"":""int""},{""name"":""price"",""type"":""double""}]}");
+		public static Schema _SCHEMA = Avro.Schema.Parse(@"{""type"":""record"",""name"":""Order"",""namespace"":""HieuLe.Kafka.Example.Microservice.Shared.Dtos"",""fields"":[{""name"":""id"",""type"":""string""},{""name"":""customerId"",""type"":""long""},{""name"":""state"",""type"":{""type"":""enum"",""name"":""OrderState"",""namespace"":""HieuLe.Kafka.Example.Microservice.Shared.Dtos"",""symbols"":[""CREATED"",""VALIDATED"",""FAILED"",""SHIPPED""]}},{""name"":""product"",""type"":{""type"":""enum"",""name"":""Product"",""namespace"":""HieuLe.Kafka.Example.Microservice.Shared.Dtos"",""symbols"":[""JUMPERS"",""UNDERPANTS"",""STOCKINGS""]}},{""name"":""quantity"",""type"":""int""},{""name"":""price"",""type"":""double""}]}");
 		private string _id;
 		private long _customerId;
-		private HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.OrderState _state;
-		private HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.Product _product;
+		private HieuLe.Kafka.Example.Microservice.Shared.Dtos.OrderState _state;
+		private HieuLe.Kafka.Example.Microservice.Shared.Dtos.Product _product;
 		private int _quantity;
 		private double _price;
 		public virtual Schema Schema
@@ -51,7 +51,7 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
 				this._customerId = value;
 			}
 		}
-		public HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.OrderState state
+		public HieuLe.Kafka.Example.Microservice.Shared.Dtos.OrderState state
 		{
 			get
 			{
@@ -62,7 +62,7 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
 				this._state = value;
 			}
 		}
-		public HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.Product product
+		public HieuLe.Kafka.Example.Microservice.Shared.Dtos.Product product
 		{
 			get
 			{
@@ -114,8 +114,8 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
 			{
 			case 0: this.id = (System.String)fieldValue; break;
 			case 1: this.customerId = (System.Int64)fieldValue; break;
-			case 2: this.state = (HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.OrderState)fieldValue; break;
-			case 3: this.product = (HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.Product)fieldValue; break;
+			case 2: this.state = (HieuLe.Kafka.Example.Microservice.Shared.Dtos.OrderState)fieldValue; break;
+			case 3: this.product = (HieuLe.Kafka.Example.Microservice.Shared.Dtos.Product)fieldValue; break;
 			case 4: this.quantity = (System.Int32)fieldValue; break;
 			case 5: this.price = (System.Double)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");

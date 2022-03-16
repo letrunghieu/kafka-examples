@@ -1,0 +1,32 @@
+[
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.Shared.Dtos",
+    "type": "enum",
+    "name": "OrderValidationType",
+    "symbols": [ "INVENTORY_CHECK", "FRAUD_CHECK", "ORDER_DETAILS_CHECK" ]
+  },
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.Shared.Dtos",
+    "type": "enum",
+    "name": "OrderValidationResult",
+    "symbols": [ "PASS", "FAIL", "ERROR" ]
+  },
+  {
+    "namespace": "HieuLe.Kafka.Example.Microservice.Shared.Dtos",
+    "type": "record",
+    "name": "OrderValidation",
+    "fields": [
+      {
+        "name": "orderId",
+        "type": "string"
+      },
+      {
+        "name": "checkType",
+        "type": "OrderValidationType"
+      },
+      {
+        "name": "validationResult",
+        "type": "OrderValidationResult"
+      }
+    ]
+  }]

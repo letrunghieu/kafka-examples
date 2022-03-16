@@ -5,7 +5,7 @@
 //    is regenerated
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
+namespace HieuLe.Kafka.Example.Microservice.Shared.Dtos
 {
 	using System;
 	using System.Collections.Generic;
@@ -13,11 +13,10 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos
 	using Avro;
 	using Avro.Specific;
 	
-	public enum OrderState
+	public enum Product
 	{
-		CREATED,
-		VALIDATED,
-		FAILED,
-		SHIPPED,
+		JUMPERS,
+		UNDERPANTS,
+		STOCKINGS,
 	}
 }

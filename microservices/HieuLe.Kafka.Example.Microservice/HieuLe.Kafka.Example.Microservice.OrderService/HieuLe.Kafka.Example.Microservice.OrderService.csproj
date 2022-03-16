@@ -16,4 +16,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domains\Dtos\Response\" />
+  </ItemGroup>
+
 </Project>

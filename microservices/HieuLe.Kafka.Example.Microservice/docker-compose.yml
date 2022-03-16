@@ -165,3 +165,10 @@ services:
     build:
       context: .
       dockerfile: HieuLe.Kafka.Example.Microservice.OrderService/Dockerfile
+
+  hieule.kafka.example.microservice.orderdetailsservice:
+    image: ${DOCKER_REGISTRY-}hieulekafkaexamplemicroserviceorderdetailsservice
+    build:
+      context: .
+      dockerfile: ../HieuLe.Kafka.Example.Microservice.OrderDetailsService/Dockerfile
+
