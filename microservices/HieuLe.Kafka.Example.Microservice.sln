@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Micros
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DEF4FD33-E392-4BB3-9BF0-46A82BC8E284}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.filenesting.json = .filenesting.json
 	EndProjectSection
 EndProject
@@ -16,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Micros
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Microservice.Shared", "HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj", "{A7025992-145E-458B-A74B-5F7FFA0431A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HieuLe.Kafka.Example.Microservice.FraudService", "HieuLe.Kafka.Example.Microservice.FraudService\HieuLe.Kafka.Example.Microservice.FraudService.csproj", "{1980B406-FFCC-492E-B313-39DC0883B5B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HieuLe.Kafka.Example.Microservice.FraudService", "HieuLe.Kafka.Example.Microservice.FraudService\HieuLe.Kafka.Example.Microservice.FraudService.csproj", "{1980B406-FFCC-492E-B313-39DC0883B5B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PG.BDS.MessageBus", "..\PG.BDS.MessageBus\PG.BDS.MessageBus.csproj", "{DFA143A9-89D2-4BF1-85C1-F93ED132C6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PG.BDS.MessageBus.Kafka", "..\PG.BDS.MessageBus.Kafka\PG.BDS.MessageBus.Kafka.csproj", "{36FCD5C0-4106-41D2-9A8D-AF6553DB0C6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +49,14 @@ Global
 		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1980B406-FFCC-492E-B313-39DC0883B5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA143A9-89D2-4BF1-85C1-F93ED132C6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA143A9-89D2-4BF1-85C1-F93ED132C6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA143A9-89D2-4BF1-85C1-F93ED132C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA143A9-89D2-4BF1-85C1-F93ED132C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FCD5C0-4106-41D2-9A8D-AF6553DB0C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FCD5C0-4106-41D2-9A8D-AF6553DB0C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FCD5C0-4106-41D2-9A8D-AF6553DB0C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FCD5C0-4106-41D2-9A8D-AF6553DB0C6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

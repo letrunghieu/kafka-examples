@@ -7,6 +7,7 @@ using HieuLe.Kafka.Example.Microservice.OrderService.Domains.Dtos.Response;
 using HieuLe.Kafka.Example.Microservice.Shared.Dtos;
 using HieuLe.Kafka.Example.Microservice.Shared.Schemas;
 using Microsoft.AspNetCore.Mvc;
+using PG.BDS.MessageBus;
 
 namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
 {
@@ -14,6 +15,13 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+        private IMessagePublisher _messagePublisher;
+
+        public OrdersController(IMessagePublisher messagePublisher)
+        {
+            _messagePublisher = messagePublisher;
+        }
+
         // GET: api/<OrdersController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -33,23 +41,32 @@ namespace HieuLe.Kafka.Example.Microservice.OrderService.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<OrderResponse>> Post([FromBody] Order order)
         {
-            var config = new ProducerConfig
-            {
-                BootstrapServers = "broker:29092",
-                ClientId = Dns.GetHostName(),
-            };
+            //var config = new ProducerConfig
+            //{
+            //    BootstrapServers = "broker:29092",
+            //    ClientId = Dns.GetHostName(),
+            //};
 
-            using var schemaRegistry = new CachedSchemaRegistryClient(new SchemaRegistryConfig
+            //using var schemaRegistry = new CachedSchemaRegistryClient(new SchemaRegistryConfig
+            //{
+            //    Url = "http://schema-registry:8081"
+            //});
+
+            //using var producer = new ProducerBuilder<string, Order>(config)
+            //    .SetKeySerializer(Topics.Orders.KeySerDesFactory.MakeSerDes(schemaRegistry).Serializer)
+            //    .SetValueSerializer(Topics.Orders.ValueSerDesFactory.MakeSerDes(schemaRegistry).Serializer)
+            //    .Build();
+
+            //await producer.ProduceAsync(Topics.Orders.Name, new Message<string, Order> { Key = order.id, Value = order });
+            await _messagePublisher.PublishAsync(Topics.Orders.Name, order.id, new Shared.ProtoMessages.Order
             {
-                Url = "http://schema-registry:8081"
+                Id = order.id,
+                CustomerId = order.customerId,
+                Price = order.price,
+                Product = Shared.ProtoMessages.Order.Types.Product.Jumpers,
+                Quantity = order.quantity,
+                State = Shared.ProtoMessages.Order.Types.OrderState.Created
             });
-
-            using var producer = new ProducerBuilder<string, Order>(config)
-                .SetKeySerializer(Topics.Orders.KeySerDesFactory.MakeSerDes(schemaRegistry).Serializer)
-                .SetValueSerializer(Topics.Orders.ValueSerDesFactory.MakeSerDes(schemaRegistry).Serializer)
-                .Build();
-
-            await producer.ProduceAsync(Topics.Orders.Name, new Message<string, Order> { Key = order.id, Value = order });
             return CreatedAtAction(nameof(GetOrder), new { id = order.id }, new OrderResponse(Url.Action(nameof(GetOrder), values: new { id = order.id }) ?? string.Empty));
         }
 

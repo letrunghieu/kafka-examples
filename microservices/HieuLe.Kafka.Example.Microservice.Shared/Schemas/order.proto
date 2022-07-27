@@ -1,0 +1,28 @@
+﻿syntax = "proto3";
+package shared;
+
+option csharp_namespace = "HieuLe.Kafka.Example.Microservice.Shared.ProtoMessages";
+
+message Order {
+  string id = 1;
+  int64 customer_id = 2;
+
+  enum OrderState {
+    CREATED = 0;
+    VALIDATED = 1;
+    FAILED = 2;
+    SHIPPED = 3;
+  }
+
+  enum Product {
+    JUMPERS = 0;
+    UNDERPANTS = 1;
+    STOCKINGS = 2;
+  }
+
+  OrderState state = 3;
+  Product product = 4;
+
+  int32 quantity = 5;
+  double price = 6;
+}

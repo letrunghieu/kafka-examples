@@ -21,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\PG.BDS.MessageBus.Kafka\PG.BDS.MessageBus.Kafka.csproj" />
+    <ProjectReference Include="..\..\PG.BDS.MessageBus\PG.BDS.MessageBus.csproj" />
     <ProjectReference Include="..\HieuLe.Kafka.Example.Microservice.Shared\HieuLe.Kafka.Example.Microservice.Shared.csproj" />
   </ItemGroup>
 
